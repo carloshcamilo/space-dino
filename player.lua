@@ -7,6 +7,7 @@ function Player:load()
   self.y = love.graphics.getHeight() - self.height
   self.speed = 800
   self.maxJumpHeight = (love.graphics.getHeight() / 4) * 3
+  self.score = 0
 end
 
 function Player:update(dt)

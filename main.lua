@@ -1,6 +1,5 @@
 require("player")
 require("enemy")
-require("score")
 
 function love.load()
   Player:load()
@@ -10,6 +9,7 @@ end
 function love.update(dt)
   Player:update(dt)
   Enemy:update(dt)
+  love.graphics.printf("Score: " .. Player.score, 0, 30, 30, 'center')
   CheckLost()
 end
 
@@ -28,6 +28,8 @@ end
 
 function CheckLost()
   if CheckCollision(Player, Enemy) then
-    Score.count = 0
+    Player.score = 0
+    Enemy.speed = 1000
+    Enemy.x = love.graphics.getWidth()
   end
 end

@@ -5,7 +5,7 @@ function Enemy:load()
   self.width = 32
   self.x = love.graphics.getWidth() - self.width
   self.y = love.graphics.getHeight() - self.height
-  self.speed = 1000
+  self.speed = 700
 end
 
 function Enemy:update(dt)
@@ -20,6 +20,8 @@ end
 function Enemy:checkReturn()
   if self.x < 0 then
     self.x = love.graphics.getWidth()
+    self.speed = self.speed + 50
+    Player.score = Player.score + 1
   end
 end
 
